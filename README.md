@@ -13,7 +13,7 @@ o	View/Add Student Details:</br>
 ![image](https://user-images.githubusercontent.com/78238784/145461665-7a49d33e-354b-4661-8990-f42dd8899ed7.png)</br>
 	Errors regarding Usernames not registered in SIS or Passwords incorrectly will be handled by the system accordingly:</br>
 ![image](https://user-images.githubusercontent.com/78238784/145461794-0cc13eaf-13a5-4aa3-a3d7-1130f20954cd.png)</br>
-	A successfully validated login will bring the user to the Options Menu</br>
+	A successfully validated login will bring the user to the Options Menu</br>
 
 Options Menu:</br>
 	SIS will display a Student’s Option Menu for validated users.</br>
