@@ -1,0 +1,321 @@
+                                            INDARA
+     A          R LOGSCRN                   CA03(03)
+     A                                      CA05(05)
+     A                                       OVERLAY
+     A                                 11 30'Username:'
+     A                                      COLOR(YLW)
+     A                                 13 30'Password:'
+     A                                      COLOR(YLW)
+     A            USRNME        10   B 11 41
+     A            PWD           10   B 13 41CHECK(LC)
+     A                                      DSPATR(ND)
+     A            LOGMSG        40   O 17 28COLOR(RED)
+     A          R HEADER
+     A                                      OVERLAY
+     A                                  2  4DATE(*SYS *YY)
+     A                                      EDTWRD('  /  /    ')
+     A                                  3 27'Student Information System'
+     A                                      COLOR(WHT)
+     A            HUSERNAME     10   O  2 69
+     A          R FOOTER
+     A                                      OVERLAY
+     A                                 23 26'F3-Exit'
+     A                                      COLOR(BLU)
+     A                                 23 47'F5-Refresh'
+     A                                      COLOR(BLU)
+     A          R FOOTER2
+                                            OVERLAY
+     A                                 23 10'F3-Exit'
+     A                                      COLOR(BLU)
+     A                                 23 27'F5-Refresh'
+     A                                      COLOR(BLU)
+     A                                 23 47'F8-Add'
+     A                                      COLOR(BLU)
+     A                                 23 63'F12-Cancel'
+     A                                      COLOR(BLU)
+     A          R FOOTERCOUR
+                                            OVERLAY
+     A                                 23 10'F3-Exit'
+     A                                      COLOR(BLU)
+     A                                 23 27'F5-Refresh'
+     A                                      COLOR(BLU)
+     A                                 23 47'F8-Add'
+     A                                      COLOR(BLU)
+     A                                 23 63'F12-Cancel'
+     A                                      COLOR(BLU)
+     A            COURMSG       40   O 22 19COLOR(RED)
+     A            COURMSG1      40     21 19COLOR(TRQ)
+     A          R FOOTER3
+                                            OVERLAY
+     A                                 23  7'F3-Exit'
+     A                                      COLOR(BLU)
+     A                                 23 18'F5-Refresh'
+     A                                      COLOR(BLU)
+     A                                 23 34'F8-Update'
+     A                                      COLOR(BLU)
+     A                                 23 48'F11-Fold/Drop'
+     A                                      COLOR(BLU)
+     A                                 23 67'F12-Cancel'
+     A                                      COLOR(BLU)
+     A            DETMSG        40   O 22 19COLOR(RED)
+     A            DETMSG1       40     20 19COLOR(TRQ)
+     A          R OPTSCRN                   CA03(03)
+     A                                      CA05(05)
+     A                                      OVERLAY
+     A                                  7 17'Options:'
+     A                                      COLOR(BLU)
+     A                                  8 20'1-Select'
+     A                                      COLOR(BLU)
+     A                                 11 35'Add New Subject'
+     A                                 13 35'Add New Course'
+     A                                 15 35'Add New Student'
+     A                                 17 35'View/Add Student Details'
+     A            ADDSUBOPT      1   I 11 31
+     A            ADDCOROPT      1   I 13 31
+     A            ADDSTUOPT      1   I 15 31
+     A            ADDDETOPT      1   I 17 31
+     A            OPTMSG        40   O 20 24COLOR(RED)
+     A          R ADDSUBSCRN                CA03(03)
+     A                                      CA05(05)
+     A                                      CF08(08)
+     A                                      CA12(12)
+                                            OVERLAY
+     A                                  9 12'Add New Subject'
+     A                                      DSPATR(UL)
+     A                                      COLOR(WHT)
+     A                                 12 21'Subject Name:'
+     A                                      COLOR(YLW)
+     A            ADDSUBINP     25   B 12 35CHECK(LC)
+     A            ADDSUBMSG     40   O 19 20COLOR(RED)
+     A            ADDSUBMSG2    40   O 17 20COLOR(TRQ)
+     A          R NEWCOURSFL                SFL
+        90                                  SFLNXTCHG
+     A            SUBJECTID R        O 14 28REFFLD(SUBFMT/SUBJECTID MEWERS2/SUB-
+     A                                      MASTER)
+     A                                      EDTCDE(4)
+     A            NWCOUROPT      1   B 14 19
+     A            SUBNAME   R        O 14 42REFFLD(SUBFMT/SUBNAME MEWERS2/SUBMA-
+     A                                      STER)
+     A          R NEWCOURCTL                SFLCTL(NEWCOURSFL)
+     A                                      OVERLAY
+     A  50                                  SFLDSPCTL
+     A  50                                  SFLDSP
+     A N50                                  SFLCLR
+     A  50                                  SFLEND(*MORE)
+     A                                      SFLPAG(5)
+     A                                      SFLSIZ(100)
+     A                                      CA03(03)
+     A                                      CA05(05)
+     A                                      CF08(08)
+     A                                      CA12(12)
+     A                                  6 13'New Course'
+     A                                      COLOR(WHT)
+     A                                      DSPATR(UL)
+     A                                  8 29'Course:'
+     A                                      COLOR(YLW)
+     A                                 10 29'Semester:'
+     A                                      COLOR(YLW)
+     A            NEWCOURINP    25   B  8 37
+     A            SEMINP        10   B 10 39
+     A                                 13 18'OPT'
+     A                                      COLOR(WHT)
+     A                                 13 26'Subject ID'
+     A                                      COLOR(WHT)
+     A                                 13 48'Subject Name'
+     A                                      COLOR(WHT)
+     A                                 10  8'Options:'
+     A                                      COLOR(BLU)
+     A                                 11 10'1-Select'
+     A                                      COLOR(BLU)
+                R NEWSTUDSFL                SFL
+     A            COURSEID  R        O 14 28REFFLD(CORMASFMT/COURSEID +
+     A                                      MEWERS2/CORMASTER)
+     A                                      EDTCDE(4)
+     A            NWSTUDOPT      1   B 14 19
+     A            COURSENAMER        O 14 42REFFLD(CORMASFMT/COURSENAME +
+     A                                      MEWERS2/CORMASTER)
+     A          R NEWSTUDCTL                SFLCTL(NEWSTUDSFL)
+     A                                      OVERLAY
+     A  45                                  SFLDSPCTL
+     A  45                                  SFLDSP
+     A N45                                  SFLCLR
+     A  45                                  SFLEND(*MORE)
+     A                                      SFLPAG(5)
+     A                                      SFLSIZ(100)
+     A                                      CA03(03)
+     A                                      CA05(05)
+     A                                      CF08(08)
+     A                                      CA12(12)
+     A                                  6 13'New Student'
+     A                                      COLOR(WHT)
+     A                                      DSPATR(UL)
+     A                                  8 23'Student Name:'
+     A                                      COLOR(YLW)
+     A                                 10 23'Student Address:'
+     A                                      COLOR(YLW)
+     A            NEWSTUDINP    25   B  8 37
+     A            ADDRINP       25   B 10 40
+     A                                 13 18'OPT'
+     A                                      COLOR(WHT)
+     A                                 13 26'Course ID'
+     A                                      COLOR(WHT)
+     A                                 13 48'Course Name'
+     A                                      COLOR(WHT)
+     A                                 10  8'Options:'
+     A                                      COLOR(BLU)
+     A                                 11 11'1-Select'
+     A                                      COLOR(BLU)
+     A          R STUDETSFL                 SFL
+     A            OPTINP         1   I 13  3
+     A            STUID          5  0O 13  6EDTCDE(4)
+     A            STUNAME       25   O 13 12
+     A            SEMID          2N 0O 13 45
+     A            COURSEID       5  0O 13 38EDTCDE(4)
+     A            SUBNAME       25   O 13 48
+     A            DMARKS         5Y 0B 13 74EDTCDE(4)
+     A                                 14 21'ADDRESS'
+     A                                      COLOR(WHT)
+     A            STUDADDR      25   O 15 12
+     A                                 14 50'COURSE NAME'
+     A                                      COLOR(WHT)
+     A            COURSENAME    25   O 15 42
+     A          R STUDETCTL                 SFLCTL(STUDETSFL)
+     A N35                                  SFLDSPCTL
+     A  36                                  SFLDSP
+     A  35                                  SFLCLR
+     A N35                                  SFLEND(*MORE)
+     A                                      SFLDROP(CF11)
+     A                                      SFLPAG(2)
+     A                                      SFLSIZ(100)
+     A                                      CA03(03)
+     A                                      CA12(12)
+     A                                      CA05(05)
+     A                                      CF08(08)
+     A                                      OVERLAY
+     A                                  5  7'Student ID:'
+     A                                      COLOR(YLW)
+     A                                  5 33'or Student Name:'
+     A                                      COLOR(YLW)
+     A                                  6  8'Course ID:'
+     A                                      COLOR(YLW)
+     A                                  6 34'or Course Name:'
+     A                                      COLOR(YLW)
+     A                                  7  9'Semester:'
+     A                                      COLOR(YLW)
+     A            STUIDINP       5N 0I  5 20
+     A            COURIDINP      5N 0I  6 20
+     A            NAMEINP       25   I  5 51
+     A            COURINP       25   I  6 51
+     A            SEMINP        10   I  7 20
+     A                                 10  3'A-ADD NEW MARKS'
+     A                                      COLOR(BLU)
+     A                                 10 21'C-CHANGE SEMESTER'
+     A                                      COLOR(BLU)
+     A                                 10 41'D-DELETE'
+     A                                      COLOR(BLU)
+     A                                 12  2'OPT'
+     A                                      COLOR(WHT)
+     A                                 12  7'SID'
+     A                                      COLOR(WHT)
+     A                                 12 19'NAME'
+     A                                      COLOR(WHT)
+     A                                 12 37'CORID'
+     A                                      COLOR(WHT)
+     A                                 12 44'SEM'
+     A                                      COLOR(WHT)
+     A                                 12 56'SUBJECT NAME'
+     A                                      COLOR(WHT)
+     A                                 12 74'MARKS'
+     A                                      COLOR(WHT)
+      *
+     A          R DUMMY                     OVERLAY
+     A          R ADDDETS                   WINDOW(5 14 16 51)
+     A                                      CA03(03)
+     A                                      CA05(05)
+     A                                      CF08(08)
+     A                                      CA12(12)
+     A                                  4  2'Add Details'
+     A                                      COLOR(WHT)
+     A                                      DSPATR(UL)
+     A                                  2 13'Student Information System'
+     A                                      COLOR(WHT)
+     A                                  1  1DATE(*JOB *YY)
+     A                                      EDTWRD('  /  /    ')
+     A                                  1 42USER
+     A                                  6  6'Student ID.....'
+     A                                      COLOR(YLW)
+     A                                  7  6'Student Name...'
+     A                                      COLOR(YLW)
+     A                                  8  6'Course:........'
+     A                                      COLOR(YLW)
+     A                                  9  6'Semester.......'
+     A                                      COLOR(YLW)
+     A                                 10  6'Subject........'
+     A                                      COLOR(YLW)
+     A                                 11  6'Marks..........'
+     A                                      COLOR(YLW)
+     A            ADDSTUID       9  0O  6 23EDTCDE(4)
+     A            ADDSTUNAME    25   O  7 23
+     A            ADDCORNAME    25   O  8 23
+     A            ADDSEM        10   O  9 23
+     A            ADDSUB        25   B 10 23CHECK(LC)
+     A            ADDMARKS       5Y 0B 11 23EDTCDE(4)
+     A                                 15  3'F3-Exit'
+     A                                      COLOR(BLU)
+     A                                 15 15'F5-Refresh'
+     A                                      COLOR(BLU)
+     A                                 15 30'F8-Add'
+     A                                      COLOR(BLU)
+     A                                 15 41'F12-Cancel'
+     A                                      COLOR(BLU)
+     A            ADDDETMSG     40   O 14  8COLOR(RED)
+     A            ADDDETMSG1    40     13  8COLOR(TRQ)
+     A          R CHGSEMWIN                 WINDOW(5 14 15 51)
+     A                                      CA03(03)
+     A                                      CA05(05)
+     A                                      CF08(08)
+     A                                      CA12(12)
+     A                                  4  2'Change Semester'
+     A                                      COLOR(WHT)
+     A                                      DSPATR(UL)
+     A                                  2 13'Student Information System'
+     A                                      COLOR(WHT)
+     A                                  1  1DATE(*SYS *YY)
+     A                                      EDTWRD('  /  /    ')
+     A                                  1 42USER
+     A                                  6  6'Student ID.....'
+     A                                      COLOR(YLW)
+     A                                  7  6'Student Name...'
+     A                                      COLOR(YLW)
+     A                                  8  6'Course:........'
+     A                                      COLOR(YLW)
+     A                                  9  6'Semester.......'
+     A                                      COLOR(YLW)
+     A            CHGSTUID       9  0O  6 23EDTCDE(4)
+     A            CHGSTUNAME    25   O  7 23
+     A            CHGCORNAME    25   O  8 23
+     A            CHGSEM        10   B  9 23
+     A                                 14  3'F3-Exit'
+     A                                      COLOR(BLU)
+     A                                 14 15'F5-Refresh'
+     A                                      COLOR(BLU)
+     A                                 14 30'F8-Add'
+     A                                      COLOR(BLU)
+     A                                 14 41'F12-Cancel'
+     A                                      COLOR(BLU)
+     A            CHGSEMMSG     40   O 13  6COLOR(RED)
+     A            CHGSEMMSG1    40     12  6COLOR(TRQ)
+     A          R CONFIRMWIN                WINDOW(7 18 10 41)
+     A                                  3 14'Are you sure?'
+     A                                      COLOR(WHT)
+     A                                  5 13'Y-Yes     N-No'
+     A                                      COLOR(BLU)
+     A            YORN           1   I  7 19
+     A          R LOGOUTWIN                 WINDOW(9 21 5 36)
+     A                                  3 13'LOGGED OUT'
+     A                                      COLOR(RED)
+     A*%%RS+<record-sequences>
+     A*%%RS+ <sequence name="Untitled">
+     A*%%RS+  <device type="display" width="80" height="24" />
+     A*%%RS+ </sequence>
+     A*%%RS </record-sequences> 
